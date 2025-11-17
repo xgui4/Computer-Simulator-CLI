@@ -1,13 +1,12 @@
 package net.xgui4.Hardware.ComputerType;
 
-import net.xgui4.Hardware.Component.Battery;
-import net.xgui4.Hardware.Component.LithiumBattery;
+import net.xgui4.Hardware.Component.Power.Battery;
+import net.xgui4.Hardware.Component.Power.LithiumBattery;
 import net.xgui4.Hardware.PowerState;
 import net.xgui4.Software.Firmware.Firmware;
 import net.xgui4.Software.Firmware.UEFI;
 import net.xgui4.Software.OperatingSystem.OperatingSystem;
 import net.xgui4.Software.OperatingSystem.Windows;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

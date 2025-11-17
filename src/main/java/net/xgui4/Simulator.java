@@ -1,46 +1,36 @@
 package net.xgui4;
 
-import net.xgui4.Hardware.Component.LithiumBattery;
-import net.xgui4.Hardware.ComputerType.Laptop;
-import net.xgui4.Software.Firmware.Firmware;
-import net.xgui4.Software.Firmware.UEFI;
-import net.xgui4.Software.OperatingSystem.OperatingSystem;
-import net.xgui4.Software.OperatingSystem.Windows;
+import net.xgui4.View.PlayButtonActionView;
 
-import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
 
 /**
  * Ceci est l'ébauche de l'applis/jeux
  */
 public class Simulator {
+    public final static String TITLE = "Computer Builder GUI";
+    public final static int WINDOWS_WIDTH = 500;
+    public final static int WINDOWS_HEIGHT = 500;
+    private final static String PLAY_TITLE = "Play";
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        JFrame frame = new JFrame(TITLE);
+        frame.setSize(WINDOWS_WIDTH, WINDOWS_HEIGHT);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        System.out.print("Enter your username: ");
-        String username = scanner.nextLine();
+        frame.setLayout(new BorderLayout());
 
-        System.out.print("Enter your computer type 1 (Laptop), 2 (Desktop : coming soon): ");
-        int computerType = scanner.nextInt();
+        JLabel title = new JLabel(TITLE, SwingConstants.CENTER);
+        JButton playButton = new JButton(PLAY_TITLE);
+        ActionListener playButtonAction = new PlayButtonActionView();
+        playButton.addActionListener(playButtonAction);
+        playButton.setPreferredSize(new Dimension(50, 50));
 
-        if (computerType != 1) {
-            System.out.println("Invalid computer type");
-        }
-
-        scanner.close();
-
-        Player player = new Player(username);
-
-        OperatingSystem microsoftWindows11 = new Windows("Microsoft Windows 11");
-        Firmware microsoftUEFI = new UEFI("Microsoft Surface UEFI", "Microsoft");
-        Laptop microsoftSurface = new Laptop(new LithiumBattery("Microsoft", "Generic Battery", "Generic Battery", 1000, 100), microsoftUEFI, microsoftWindows11);
-
-        player.chooseComputer(microsoftSurface);
-
-        player.play();
-        
-        player.analyse();
-
-        player.quit();
-
+        // Add components to frame
+        frame.add(title, BorderLayout.NORTH);
+        frame.add(playButton, BorderLayout.CENTER);
+        frame.setVisible(true); 
     }
 }

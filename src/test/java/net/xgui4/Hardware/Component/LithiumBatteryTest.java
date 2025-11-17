@@ -1,6 +1,7 @@
 package net.xgui4.Hardware.Component;
 
-import org.junit.jupiter.api.AfterEach;
+import net.xgui4.Hardware.Component.Power.Battery;
+import net.xgui4.Hardware.Component.Power.LithiumBattery;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

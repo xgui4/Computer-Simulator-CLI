@@ -1,4 +1,4 @@
-package net.xgui4.Hardware.Component;
+package net.xgui4.Hardware.Component.Power;
 
 /**
  * Cette classe représente le status des batteries de lithium

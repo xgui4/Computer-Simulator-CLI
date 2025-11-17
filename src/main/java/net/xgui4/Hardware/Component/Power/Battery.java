@@ -1,9 +1,9 @@
-package net.xgui4.Hardware.Component;
+package net.xgui4.Hardware.Component.Power;
 
 /**
  * Cette classe abstraite représente une batterie
  */
-public abstract class Battery {
+public abstract class Battery implements PowerComponent {
     private final String manufacturer;
     private final String model;
     private final String name;
@@ -29,6 +29,7 @@ public abstract class Battery {
      *
      * @return la capacité
      */
+    @Override
     public int getCapacity() {
         return capacity;
     }
@@ -42,6 +43,7 @@ public abstract class Battery {
      *
      * @return la string du model
      */
+    @Override
     public String getModel() {
         return model;
     }
@@ -51,6 +53,7 @@ public abstract class Battery {
      *
      * @return le nom
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -60,6 +63,7 @@ public abstract class Battery {
      *
      * @return le manufacturier
      */
+    @Override
     public String getManufacturer() {
         return manufacturer;
     }
@@ -69,6 +73,7 @@ public abstract class Battery {
      *
      * @return les détailles de la batterie
      */
+    @Override
     public String getSummary() {
         return "Manufacturer : " + getManufacturer() + "\n" +
                 "Model : " + getModel() + "\n" +
@@ -79,5 +84,7 @@ public abstract class Battery {
     /**
      * Réduit la santé de la batterie
      */
+
+    @Override
     public abstract void degradeHealth();
 }

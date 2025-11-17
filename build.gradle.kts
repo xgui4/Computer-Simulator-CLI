@@ -17,3 +17,8 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks.register<JavaExec>("run") {
+    mainClass.set("net.xgui4.Simulator") // Replace with your main class
+    classpath = sourceSets["main"].runtimeClasspath
+}

@@ -1,10 +1,10 @@
 package net.xgui4;
 
-import net.xgui4.Hardware.Component.Battery;
+import net.xgui4.Hardware.Component.Power.Battery;
 import net.xgui4.Hardware.ComputerType.Computer;
 
 public class Player {
-    private String username;
+    private final String username;
     private Computer computer;
 
     public Player(String username) {
@@ -22,7 +22,7 @@ public class Player {
 
     public void analyse() {
         System.out.println("Information : ");
-        computer.getInfo(computer.getBattery());
+        computer.getInfo((Battery)computer.getPowerComponent());
     }
 
     public void quit() {
